@@ -1,22 +1,19 @@
 package eureka_client
 
 import (
+	"log"
 	"net"
 )
 
 // getLocalIP 获取本地ip
 func getLocalIP() string {
-	addrs, err := net.InterfaceAddrs()
+	conn, err := net.Dial("udp", "8.8.8.8:80")
 	if err != nil {
-		return ""
+		log.Fatal(err)
 	}
-	for _, address := range addrs {
-		// check the address type and if it is not a loopback the display it
-		if ipnet, ok := address.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
-			if ipnet.IP.To4() != nil {
-				return ipnet.IP.String()
-			}
-		}
-	}
-	return ""
+	defer conn.Close()
+
+	localAddr := conn.LocalAddr().(*net.UDPAddr)
+
+	return localAddr.IP.To4().String()
 }

@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"net/http"
 
-	eureka "github.com/xuanbo/eureka-client"
+	eureka "github.com/rfscheidt/eureka-client"
 )
 
 func main() {
 	// create eureka client
 	client := eureka.NewClient(&eureka.Config{
-		DefaultZone:           "http://localhost:8761/eureka/",
+		DefaultZone:           "http://localhost:9080/discovery-service/eureka/",
 		App:                   "go-example",
 		Port:                  10000,
 		RenewalIntervalInSecs: 10,

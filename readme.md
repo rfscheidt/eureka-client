@@ -1,3 +1,6 @@
+# @rfscheidt Forked from "github.com/xuanbo/eureka-client" to resolve the problem:
+* 1) get correct local ip 
+
 # Eureka-Client
 
 > eureka client by golang
