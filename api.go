@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/xuanbo/requests"
+	"github.com/rfscheidt/eureka-client/requests"
 )
 
 var (
